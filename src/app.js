@@ -1,2 +1,3 @@
-import React from 'react';
+let message = 'Hello world!';
 
+export { message };

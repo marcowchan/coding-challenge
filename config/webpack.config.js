@@ -1,10 +1,11 @@
 const path = require('path');
 
 module.exports = {
-  entry: path.resolve(__dirname, './src/index.js'),
+  entry: path.resolve(__dirname, '../src/index.js'),
   output: {
-    path: path.resolve(__dirname, './public/dist/'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, '../public/dist/'),
+    filename: 'bundle.js',
+    'publicPath': '/dist/'
   },
   module: {
     rules: [{
@@ -14,5 +15,11 @@ module.exports = {
       },
     }],
   },
-  devtool: 'source-map',
+  devServer: {
+    contentBase: path.join(__dirname, '../public/'),
+    compress: true,
+    port: 1337,
+    clientLogLevel: 'none',
+  },
+  devtool: 'eval',
 };
